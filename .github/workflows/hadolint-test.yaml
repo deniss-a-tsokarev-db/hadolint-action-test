@@ -24,6 +24,7 @@ jobs:
           # config: config/hadolint.yaml
           no-fail: true
           verbose: true
+          no-color: false
      
       - name: Hadolint results
         env:
