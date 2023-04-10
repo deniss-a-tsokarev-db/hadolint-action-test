@@ -22,7 +22,7 @@ jobs:
         with:
           dockerfile: warning.Dockerfile
           # config: config/hadolint.yaml
-          no-fail: true
+          # no-fail: true
           verbose: true
           no-color: false
      
