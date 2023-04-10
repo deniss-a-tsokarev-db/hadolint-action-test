@@ -23,6 +23,7 @@ jobs:
           dockerfile: warning.Dockerfile
           # config: config/hadolint.yaml
           no-fail: true
+          verbose: true
      
       - name: Hadolint results
         env:
