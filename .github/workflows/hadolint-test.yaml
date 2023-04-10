@@ -20,7 +20,7 @@ jobs:
         id: hadolint
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: Dockerfile
+          dockerfile: info.Dockerfile
           no-fail: true
      
       - name: Hadolint results
