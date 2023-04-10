@@ -1,0 +1,31 @@
+name: "Hadolint Test"
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    
+    steps:
+      - name: Repo checkout
+        uses: actions/checkout@v3
+      
+      - name: Lint Dockerfile (Hadolint)
+        id: hadolint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+          no-fail: true
+     
+      - name: Hadolint results
+        run: |
+          echo ${{ steps.hadolint.outcome }}
+          
+          printf "\nHADOLINT_RESULTS env:\n"
+          echo ${{ env.HADOLINT_RESULTS }}
