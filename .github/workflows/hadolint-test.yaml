@@ -22,8 +22,6 @@ jobs:
         with:
           dockerfile: Dockerfile
           no-fail: true
-          verbose: true
-          failure-threshold: info
      
       - name: Hadolint results
         env:
