@@ -22,6 +22,7 @@ jobs:
         with:
           dockerfile: warning.Dockerfile
           no-fail: true
+          no-color: false
           verbose: true
      
       - name: Hadolint results
