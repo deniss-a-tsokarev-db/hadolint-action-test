@@ -28,4 +28,5 @@ jobs:
           results: ${{ steps.hadolint.outputs.results }}
         run: |
           printf "\nHadolint Results:\n"
-          echo $results
+          results=${results:-"All checks have passed successfully!"}
+          echo "$results"
