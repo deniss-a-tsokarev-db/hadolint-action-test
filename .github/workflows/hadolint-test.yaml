@@ -60,3 +60,4 @@ jobs:
           printf "\nHadolint Results:\n"
           results=${results:-"All checks have passed successfully!"}
           echo "$results"
+
