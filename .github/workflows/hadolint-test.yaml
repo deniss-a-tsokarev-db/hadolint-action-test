@@ -25,7 +25,7 @@ jobs:
      
       - name: Hadolint results
         env:
-          results: ${{ steps.hadolint5.outputs.results }}
+          results: ${{ steps.hadolint.outputs.results }}
         run: |
           echo ${{ steps.hadolint.outcome }}
           
