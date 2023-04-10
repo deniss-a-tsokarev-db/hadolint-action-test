@@ -16,16 +16,46 @@ jobs:
       - name: Repo checkout
         uses: actions/checkout@v3
       
-      - name: Lint Dockerfile (Hadolint)
-        id: hadolint
+      - name: Lint Dockerfile 1 (success)
+        id: hadolint-success
         uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: Dockerfile
           no-fail: true
      
-      - name: Hadolint results
+      - name: Hadolint result - success
         env:
-          results: ${{ steps.hadolint.outputs.results }}
+          results: ${{ steps.hadolint-success.outputs.results }}
+        run: |
+          printf "\nHadolint Results:\n"
+          results=${results:-"All checks have passed successfully!"}
+          echo "$results"
+      
+      - name: Lint Dockerfile 2 (info)
+        id: hadolint-info
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: info.Dockerfile
+          no-fail: true
+      
+      - name: Hadolint result - info
+        env:
+          results: ${{ steps.hadolint-info.outputs.results }}
+        run: |
+          printf "\nHadolint Results:\n"
+          results=${results:-"All checks have passed successfully!"}
+          echo "$results"
+          
+      - name: Lint Dockerfile 3 (warning)
+        id: hadolint-warning
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: warning.Dockerfile
+          no-fail: true
+      
+      - name: Hadolint result - warning
+        env:
+          results: ${{ steps.hadolint-warning.outputs.results }}
         run: |
           printf "\nHadolint Results:\n"
           results=${results:-"All checks have passed successfully!"}
