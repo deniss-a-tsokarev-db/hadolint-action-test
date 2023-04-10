@@ -24,8 +24,10 @@ jobs:
           no-fail: true
      
       - name: Hadolint results
+        env:
+          results: ${{ steps.hadolint5.outputs.results }}
         run: |
           echo ${{ steps.hadolint.outcome }}
           
-          printf "\nHADOLINT_RESULTS env:\n"
-          echo ${{ env.HADOLINT_RESULTS }}
+          printf "\nHadolint Results:\n"
+          echo "$results"
