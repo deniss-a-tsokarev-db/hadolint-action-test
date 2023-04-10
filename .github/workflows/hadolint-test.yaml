@@ -22,14 +22,10 @@ jobs:
         with:
           dockerfile: warning.Dockerfile
           no-fail: true
-          no-color: false
-          verbose: true
      
       - name: Hadolint results
         env:
           results: ${{ steps.hadolint.outputs.results }}
         run: |
-          echo ${{ steps.hadolint.outcome }}
-          
           printf "\nHadolint Results:\n"
           echo "$results"
