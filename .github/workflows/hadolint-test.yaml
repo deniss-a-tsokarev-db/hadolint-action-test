@@ -21,10 +21,8 @@ jobs:
         uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: warning.Dockerfile
-          # config: config/hadolint.yaml
-          # no-fail: true
+          no-fail: true
           verbose: true
-          no-color: false
      
       - name: Hadolint results
         env:
